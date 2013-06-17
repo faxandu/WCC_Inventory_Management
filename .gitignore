@@ -1,0 +1,6 @@
+#Ignore compiled python
+*.pyc
+
+#ignore db
+Inventory_Management_DB
+
