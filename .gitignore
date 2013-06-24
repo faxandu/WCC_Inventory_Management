@@ -2,5 +2,4 @@
 *.pyc
 
 #ignore db
-Inventory_Management_DB
-
+*.sqlite3
