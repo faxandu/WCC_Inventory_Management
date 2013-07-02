@@ -9,8 +9,8 @@ class Equipment(models.Model):
         Base model for Unit and Component
     '''
     manufacturer = models.ForeignKey('Manufacturer')
-    model_num = models.ForeignKey('ModelNumber', blank = True, null = True)
-    serial_num = models.CharField(max_length = 35, unique = True, blank= True,null = True)
+    model_num = models.ForeignKey('ModelNumber', blank = True, null = True) 
+    serial_num = models.CharField(max_length = 35, unique = True, blank= True,null = True) 
     purchaseDate = models.DateField()
 
 
@@ -109,19 +109,17 @@ class Power_supply_unit(Component):
     power_rating = models.CharField(max_length = 8, blank=True)
 
 class Service_contract(models.Model):
-    service_contract = models.TextField()
+    service_contract = models.TextField() 
 
 class Router(Unit):
     IS_tag = models.IntegerField(blank=True,null = True)
-    ports = models.ForeignKey('Port')
+    ports = models.ForeignKey('Port') 
     number_of_mem_sticks = models.IntegerField()
     service_contract = models.ForeignKey('Service_contract')
     ram = models.ForeignKey('Ram')
-    flash = models.ForeignKey('Flash_Memory', blank=True,null = True)
-    OS = models.ForeignKey('Operating_system')
+    flash = models.ForeignKey('Flash_Memory', blank=True,null = True) 
 
-
-class Port(models.Model):
+class Port(models.Model): 
     name = models.IntegerField()
     type_of_port = models.CharField(max_length = 10, blank=True, null=True)
 
@@ -129,7 +127,7 @@ class Firewall(Router):
     expansion_slot = models.TextField(blank=True,null=True)
 
 class Switch(Router): 
-    expansion_slot = models.TextField(blank=True,null=True)
+    expansion_slot = models.TextField(blank=True,null=True) 
 
 class Computer(Unit): 
     cpu = models.ForeignKey('Central_processing_unit')
@@ -139,5 +137,3 @@ class Computer(Unit):
     psu = models.ForeignKey('Power_supply_unit')
     number_of_mem_sticks = models.IntegerField()
     IS_tag = models.IntegerField()
-        
-
