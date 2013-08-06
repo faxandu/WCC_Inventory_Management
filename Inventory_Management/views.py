@@ -3,6 +3,26 @@ from rest_framework import viewsets, generics#generics is here for if we need ge
 from Inventory_Management import serializers
 from Inventory_Management import models
 
+'''
+Understanding Views
+
+views are what format the data that we get/pass from the serializers. we inherit from rest_frameworks viewsets for ease
+    and import our models as we will need to query them as apart of our view.
+
+example:
+
+class VLocation(viewsets.ModelViewSet):
+    queryset=models.Location.objects.all()
+    serializer_class = serializers.SLocation
+
+standard python syntax for making a class, inherited from viewsets.ModelViewSet. this has two required fields
+
+    querryset: while in this file we just do evertying in the table, it can be modifed in a way to permit just cetrian 
+        elemets based on a query.
+    serializer_class: the serializer we use for the view.
+
+'''
+
 #core types
 class VLocation(viewsets.ModelViewSet):
     queryset=models.Location.objects.all()
@@ -22,7 +42,7 @@ class VModelNumber(viewsets.ModelViewSet):
 
 class VService_contract(viewsets.ModelViewSet):
     queryset=models.Service_contract.objects.all()
-    serializer_class = serializers.SService
+    serializer_class = serializers.SService_contract
 
 class VPort(viewsets.ModelViewSet):
     queryset=models.Port.objects.all()

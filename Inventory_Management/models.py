@@ -27,7 +27,6 @@ class Component(Equipment):
     '''
     location = models.ForeignKey('Location', blank=True, null=True)
 
-
 class Location(models.Model):
     '''
         Docstring needed
@@ -36,7 +35,7 @@ class Location(models.Model):
     room = models.CharField(max_length=4)
 
     def __unicode__(self):
-        return unicode(self.building + self.room)
+        return unicode(self.building + ' ' + self.room)
 
 
 class Manufacturer(models.Model):
@@ -107,6 +106,7 @@ class Operating_system(Component):
 
 class Power_supply_unit(Component):
     power_rating = models.CharField(max_length = 8, blank=True)
+
 
 class Service_contract(models.Model):
     service_contract = models.TextField() 
